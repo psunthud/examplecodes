@@ -79,5 +79,5 @@ p + geom_point(size=1.75, aes(shape=location)) + scale_shape_manual(values=rep(1
 datthai <- dat[dat$location == 'Thailand',]
 
 p <- ggplot(data = datthai, aes(x=date, y=new_tests)) + geom_line(lwd=1) + labs(y="New Tests in Thailand")
-p + geom_point(size=1.75) + geom_smooth(method='lm', formula= y~x)
+p + geom_point(size=1.75) + geom_smooth(method='loess', formula= y~x)
 
