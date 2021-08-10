@@ -76,3 +76,8 @@ library(ggplot2)
 p <- ggplot(data = dat, aes(x=date, y=target, colour=location)) + geom_line(lwd=1) + labs(title="Comparing Asian countries with more than 10m population",y="New COVID-19 Cases per Millions per 10k Tests")
 p + geom_point(size=1.75, aes(shape=location)) + scale_shape_manual(values=rep(1:5, length.out=length(targetcountry)))
 
+datthai <- dat[dat$location == 'Thailand',]
+
+p <- ggplot(data = datthai, aes(x=date, y=new_tests)) + geom_line(lwd=1) + labs(y="New Tests in Thailand")
+p + geom_point(size=1.75) + geom_smooth(method='lm', formula= y~x)
+
